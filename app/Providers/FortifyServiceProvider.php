@@ -27,7 +27,7 @@ class FortifyServiceProvider extends ServiceProvider
     {
         $this->app->when([AdminController::class, AttemptToAuthenticate::class, RedirectIfTwoFactorAuthenticatable::class])
         ->needs(StatefulGuard::class)
-        ->five(function(){
+        ->give(function(){
             return Auth::guard('admin');
         });
     }
